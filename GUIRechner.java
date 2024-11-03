@@ -167,7 +167,6 @@ class AppWindow extends JDialog {
 			ok = false;
 		}
 
-		// Falls das n Okay ist:
 
 		if (ok) {
 			double result = 0;
