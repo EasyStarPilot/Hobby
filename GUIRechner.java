@@ -15,9 +15,9 @@ import javax.swing.KeyStroke;
 
 class AppWindow extends JDialog {
 
-	JTextField 	textfield_input1;
-	JTextField 	textfield_input2;
-	JTextField 	textfield_output;
+	JTextField textfield_input1;
+	JTextField textfield_input2;
+	JTextField textfield_output;
 
 	JRadioButton rbPlus;
 	JRadioButton rbMinus;
@@ -25,7 +25,7 @@ class AppWindow extends JDialog {
 	JRadioButton rbGeteilt;
 	JRadioButton rbHoch;
 
-	JButton		button;
+	JButton button;
 
 	public AppWindow() {
 		this.getContentPane().setLayout(null);
@@ -36,11 +36,9 @@ class AppWindow extends JDialog {
 
 			public void windowClosed(WindowEvent arg0) {
 
-
 			}
 
 			public void windowActivated(WindowEvent e) {
-
 
 			}
 
@@ -50,32 +48,25 @@ class AppWindow extends JDialog {
 
 			public void windowDeactivated(WindowEvent e) {
 
-
 			}
 
 			public void windowDeiconified(WindowEvent e) {
-
 
 			}
 
 			public void windowIconified(WindowEvent e) {
 
-
 			}
 
 			public void windowOpened(WindowEvent e) {
 
-
 			}
-
-
 
 		});
 
 	}
 
-	protected void initWindow() 
-	{
+	protected void initWindow() {
 		textfield_input1 = new JTextField();
 		textfield_input2 = new JTextField();
 		textfield_output = new JTextField();
@@ -104,17 +95,17 @@ class AppWindow extends JDialog {
 		});
 
 		// Positionen festlegen
-		textfield_input1.setBounds(5,10,400,25);
-		textfield_input2.setBounds(5,40,400,25);
-		textfield_output.setBounds(5,100,400,25);
+		textfield_input1.setBounds(5, 10, 400, 25);
+		textfield_input2.setBounds(5, 40, 400, 25);
+		textfield_output.setBounds(5, 100, 400, 25);
 
-		rbPlus.setBounds(5,70,40,25);
-		rbMinus.setBounds(55,70,40,25);
-		rbMal.setBounds(105,70,40,25);
-		rbGeteilt.setBounds(155,70,40,25);
-		rbHoch.setBounds(205,70,40,25);
+		rbPlus.setBounds(5, 70, 40, 25);
+		rbMinus.setBounds(55, 70, 40, 25);
+		rbMal.setBounds(105, 70, 40, 25);
+		rbGeteilt.setBounds(155, 70, 40, 25);
+		rbHoch.setBounds(205, 70, 40, 25);
 
-		button.setBounds(300,130,100,30);
+		button.setBounds(300, 130, 100, 30);
 
 		// Elemente dem Fenster hinzufügen:
 		this.getContentPane().add(textfield_input1);
@@ -128,18 +119,19 @@ class AppWindow extends JDialog {
 		this.getContentPane().add(rbHoch);
 
 		ActionListener escListener = new ActionListener() {
-			@Override public void actionPerformed(ActionEvent e) {
+			@Override
+			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
 			}
 		};
 		ActionListener enterListener = new ActionListener() {
-			@Override public void actionPerformed(ActionEvent e) {
+			@Override
+			public void actionPerformed(ActionEvent e) {
 				neuBerechnen();
 			}
 		};
-	
-		this.getRootPane().registerKeyboardAction(escListener
-		,
+
+		this.getRootPane().registerKeyboardAction(escListener,
 				KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0),
 				JComponent.WHEN_IN_FOCUSED_WINDOW);
 		this.getRootPane().registerKeyboardAction(enterListener,
@@ -149,8 +141,7 @@ class AppWindow extends JDialog {
 		this.pack();
 	}
 
-	public void neuBerechnen()
-	{
+	public void neuBerechnen() {
 		// Hole Zahl aus Textfeld:
 		boolean ok = true;
 		double input1 = 0;
@@ -167,7 +158,6 @@ class AppWindow extends JDialog {
 			ok = false;
 		}
 
-
 		if (ok) {
 			double result = 0;
 			if (rbPlus.isSelected()) {
@@ -178,12 +168,13 @@ class AppWindow extends JDialog {
 				result = input1 * input2;
 			} else if (rbGeteilt.isSelected()) {
 				result = input1 / input2;
-			}else if (rbHoch.isSelected()){
-				double loesung=1;
-				while(input2>=1){
-					loesung = loesung*input1;
-					input2= input2-1;}
-				result=loesung;
+			} else if (rbHoch.isSelected()) {
+				double loesung = 1;
+				while (input2 >= 1) {
+					loesung = loesung * input1;
+					input2 = input2 - 1;
+				}
+				result = loesung;
 
 			}
 

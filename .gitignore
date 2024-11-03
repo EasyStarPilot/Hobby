@@ -490,3 +490,4 @@ out/jre/lib/security/default.policy
 out/jre/lib/security/public_suffix_list.dat
 Hobby.jar
 Taschenrechner.exe
+.gitignore
