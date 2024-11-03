@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -14,12 +15,12 @@ import javax.swing.JTextField;
 import javax.swing.KeyStroke;
 
 
-class AppWindow extends JDialog {
+class TTTAppWindow extends JDialog {
 
 	JButton[] buttons  = new JButton[9];
     JTextField 	textfield_output;
 
-	public AppWindow() {
+	public TTTAppWindow() {
 		this.getContentPane().setLayout(null);
 
 		this.initWindow();
@@ -67,22 +68,23 @@ class AppWindow extends JDialog {
 	}
 
 	protected void initWindow() 
-	{
-		for (int i =0; i<10; i++) {
-            buttons[i] = new JButton(); 
-            buttons[i].setBounds(i*25+10,130-i%3*50,100,30); 
+	{	
+		textfield_output = new JTextField();
+		textfield_output.setEditable(false);
+		for (int i =0; i<9; i++) {
+            buttons[i] = new JButton("" + i); 
+            buttons[i].setBounds(10+i%3*60,i/3*60+10,50,50); 
             this.getContentPane().add(buttons[i]);
+			buttons[i].addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					((JButton)arg0.getSource()).setBackground(Color.YELLOW);
+				}
+			});
         } 
 
-		// button.addActionListener(new ActionListener() {
-		// 	public void actionPerformed(ActionEvent arg0) {
-		// 		neuBerechnen();
-        //         this.getContentPane().add(buttons);
-		// 	}
-		// });
 
 		// Positionen festlegen
-		textfield_output.setBounds(5,100,400,25);
+		textfield_output.setBounds(10,190,170,25);
 
 
 		// Elemente dem Fenster hinzufügen:
@@ -101,15 +103,14 @@ class AppWindow extends JDialog {
 				JComponent.WHEN_IN_FOCUSED_WINDOW);
 		this.pack();
 	}
-
+}
 
 public class TTT {
     public static void main(String[] args) {
-		AppWindow theAppWindow = new AppWindow();
-		theAppWindow.setBounds(10, 10, 420, 210);
+		TTTAppWindow theAppWindow = new TTTAppWindow();
+		theAppWindow.setBounds(105, 133, 210, 265);
 		theAppWindow.setLocationRelativeTo(null);
 		theAppWindow.setTitle("TTT");
 		theAppWindow.setVisible(true);
 	}
-}
 }
