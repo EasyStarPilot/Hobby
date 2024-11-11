@@ -23,17 +23,23 @@ class TTTAppWindow extends JDialog {
 		this.addWindowListener(new WindowListener() {
 			public void windowClosed(WindowEvent arg0) {
 			}
+
 			public void windowActivated(WindowEvent e) {
 			}
+
 			public void windowClosing(WindowEvent e) {
 				System.exit(0);
 			}
+
 			public void windowDeactivated(WindowEvent e) {
 			}
+
 			public void windowDeiconified(WindowEvent e) {
 			}
+
 			public void windowIconified(WindowEvent e) {
 			}
+
 			public void windowOpened(WindowEvent e) {
 			}
 		});
@@ -60,9 +66,14 @@ class TTTAppWindow extends JDialog {
 							player = true;
 						}
 						textfield_output.setText("");
-						// if (Win(buttons) == true) {
-
-						// }
+						if (Win(buttons) == true) {
+							if (player=true) {
+								textfield_output.setText("Spieler 1 hat gewonen!!!");
+							}
+							else if (player=false) {
+								textfield_output.setText("Spieler 2 hat gewonen!!!");
+							}
+						}
 					} else {
 						textfield_output.setText("Das darfst du nicht!!!");
 					}
@@ -76,11 +87,14 @@ class TTTAppWindow extends JDialog {
 		// Elemente dem Fenster hinzufügen:
 		this.getContentPane().add(textfield_output);
 		this.pack();
+
 	}
 }
 
-public static boolean Win() {
-
+public static boolean Win(JButton[] buttons) {
+	if (condition) {
+		return true;
+	}
 }
 
 public class TTT {
