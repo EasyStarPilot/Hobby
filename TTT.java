@@ -1,19 +1,16 @@
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 import javax.swing.JButton;
-import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JTextField;
-import javax.swing.KeyStroke;
 
 class TTTAppWindow extends JDialog {
 
-	JButton[] buttons = new JButton[9];
+	JButton[][] buttons = new JButton[9][];
 	JTextField textfield_output;
 	boolean player = false;
 
@@ -50,11 +47,11 @@ class TTTAppWindow extends JDialog {
 		textfield_output = new JTextField();
 		textfield_output.setEditable(false);
 		for (int i = 0; i < 9; i++) {
-			buttons[i] = new JButton();
-			buttons[i].setBounds(10 + i % 3 * 60, i / 3 * 60 + 10, 50, 50);
-			this.getContentPane().add(buttons[i]);
-			buttons[i].setBackground(Color.WHITE);
-			buttons[i].addActionListener(new ActionListener() {
+			buttons[(int) Math.ceil(i / 3)][i] = new JButton();
+			buttons[(int) Math.ceil(i / 3)][i].setBounds(10 + i % 3 * 60, i / 3 * 60 + 10, 50, 50);
+			this.getContentPane().add(buttons[(int) Math.ceil(i / 3)][i]);
+			buttons[(int) Math.ceil(i / 3)][i].setBackground(Color.WHITE);
+			buttons[(int) Math.ceil(i / 3)][i].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					JButton button = ((JButton) arg0.getSource());
 					if (button.getBackground() == Color.WHITE) {
@@ -67,10 +64,9 @@ class TTTAppWindow extends JDialog {
 						}
 						textfield_output.setText("");
 						if (Win(buttons) == true) {
-							if (player=true) {
+							if (player = true) {
 								textfield_output.setText("Spieler 1 hat gewonen!!!");
-							}
-							else if (player=false) {
+							} else if (player = false) {
 								textfield_output.setText("Spieler 2 hat gewonen!!!");
 							}
 						}
@@ -91,8 +87,9 @@ class TTTAppWindow extends JDialog {
 	}
 }
 
-public static boolean Win(JButton[] buttons) {
-	if (condition) {
+public static boolean Win(JButton[][] buttons) {
+	for(int i= 0; )
+	if (buttons) {
 		return true;
 	}
 }
