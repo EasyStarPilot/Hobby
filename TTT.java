@@ -81,7 +81,7 @@ class TTTAppWindow extends JDialog {
 										textfield_output.setText("Spieler 2 hat gewonen!!!");
 										for (int x = 0; x < 3; x++) {
 											for (int y = 0; y < 3; y++) {
-												buttons[x][x].setEnabled(false);
+												buttons[x][y].setEnabled(false);
 											}
 										}
 									}
