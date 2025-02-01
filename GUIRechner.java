@@ -169,12 +169,12 @@ class AppWindow extends JDialog {
 			} else if (rbGeteilt.isSelected()) {
 				result = input1 / input2;
 			} else if (rbHoch.isSelected()) {
-				double loesung = 1;
+				double lösung = 1;
 				while (input2 >= 1) {
-					loesung = loesung * input1;
+					lösung = lösung * input1;
 					input2 = input2 - 1;
 				}
-				result = loesung;
+				result = lösung;
 
 			}
 

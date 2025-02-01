@@ -71,14 +71,14 @@ class TTTAppWindow extends JDialog {
 									|| (buttons[1][1].getBackground() != Color.WHITE)&& (buttons[0][0].getBackground()) == (buttons[1][1].getBackground())&& (buttons[1][1].getBackground()) == (buttons[2][2].getBackground())					//Diagonale1 abchecken
 									|| (buttons[1][1].getBackground() != Color.WHITE)&& (buttons[0][2].getBackground()) == (buttons[1][1].getBackground())&& (buttons[1][1].getBackground()) == (buttons[2][0].getBackground())) {				//Diagonale2 abchecken
 									if (player == true) {
-										textfield_output.setText("Spieler 1 hat gewonen!!!");
+										textfield_output.setText("Spieler 1 hat gewonnen!!!");
 										for (int x = 0; x < 3; x++) {
 											for (int y = 0; y < 3; y++) {
 												buttons[x][y].setEnabled(false);
 											}
 										}
 									} else if (player == false) {
-										textfield_output.setText("Spieler 2 hat gewonen!!!");
+										textfield_output.setText("Spieler 2 hat gewonnen!!!");
 										for (int x = 0; x < 3; x++) {
 											for (int y = 0; y < 3; y++) {
 												buttons[x][y].setEnabled(false);
